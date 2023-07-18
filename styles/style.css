@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,200&display=swap');
+
+
+/* font seçimi */
+*{
+  font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+  --main-color: #034f56;
+  --black-color: #121212;
+  --ext-color: #e9e0d2;
+  --border:0.1rem solid rgba(255,255,255,0.4);
+  }
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: 0.2 ease;
+}
+
+/* base html codes */
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 9rem;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--main-color);
+}
+
+section {
+  padding: 3.5rem 7%;
+}
+
+.btn{
+  margin-top: 2rem;
+  display: inline-block;
+  padding: 2rem 3.75rem;
+  border-radius: 30rem;
+  font-size: 1.75rem;
+  color: var(--main-color);
+  background-color: var(--ext-color);
+  font-weight: bold;
+}
+
+.body .freeship{
+  background-color: var(--ext-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7%;
+  margin: 2rem 7%;
+}
+
+/* header start*/
+
+/* logo büyüklüğü*/
+.header .logo img {
+    height: 7rem;
+  }
+
+.header {
+  background-color: var(--ext-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7%;
+  margin: 2rem 7%;
+  border-radius: 30rem;
+  box-shadow: 0px 0px 17px -2px rgba(0,0,0,0.75);
+  /*headerın scroll boyunca üstte sabitlenmesi için*/
+  position: sticky; 
+  top: 0;
+  z-index: 1000; /*headerın üstte kalabilmesi için*/
+}
+
+.freeship {
+  background-color: var(--black-color);
+  display: flex;
+  padding: 1rem;
+  color:white;
+  justify-content:center;
+  font-size: 1.5rem;
+  margin: 0 auto;
+}
+
+.header .navbar a{
+  margin: 0 1rem;
+  font-size: 1.6rem;
+  color: var(--black-color);
+  border-bottom: 0.1rem solid transparent;
+}
+
+.header .navbar .active,
+.header .navbar a:hover{
+  border-color: var(--main-color);
+  padding-bottom: 0.5rem ;
+}
+
+.header .buttons button{
+  cursor: pointer;
+  font-size: 2.5rem;
+  margin-left: 2rem;
+  background-color: transparent;
+}
+
+  /* header end*/
+
+  /*home start*/
+  
+  .home {
+    min-height: 80vh;
+    background: url(../images/home.png);
+    background-size: cover;
+    background-position: center;
+    margin-top: -11.25rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .home .content{
+    max-width: 60rem;
+  }
+
+  .home .content h3{
+    font-size: 6rem;
+    color: var(--ext-color);
+  }
+
+  .home .content p{
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: var(--ext-color);
+    margin-left: 0.45rem;
+  }
+  /*home end*/
