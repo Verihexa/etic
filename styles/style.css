@@ -1,20 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,200&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,200&display=swap");
 
 /* font seçimi */
-*{
-  font-family: 'Montserrat', sans-serif;
+* {
+  font-family: "Montserrat", sans-serif;
 }
 
 :root {
   --main-color: #034f56;
   --black-color: #121212;
   --ext-color: #e9e0d2;
-  --border:0.1rem solid rgba(255,255,255,0.4);
-  }
+  --border: 0.1rem solid rgba(255, 255, 255, 0.4);
+}
 
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -35,14 +33,14 @@ html {
 
 body {
   background-color: var(--main-color);
-  height: 500vh;
 }
 
 section {
   padding: 3.5rem 7%;
 }
 
-.home-btn{ /*home kısmı sipariş ver butonu*/
+.home-btn {
+  /*home kısmı sipariş ver butonu*/
   margin-top: 2rem;
   display: inline-block;
   padding: 2rem 3.75rem;
@@ -53,27 +51,27 @@ section {
   font-weight: bold;
 }
 
-.btn{ /*ürün butonları*/
-  margin-top: 2rem;
-  display: inline-block;
-  padding: 1rem 2.5rem;
-  border-radius: 30rem;
-  /*font-size: 1.75rem;*/
-  color: var(--ext-color);
-  background-color: var(--main-color);
-  font-weight: bold;
-  cursor: pointer;
+/*.btn{ /*ürün butonları
+          margin-top: 2rem;
+          display: inline-block;
+          padding: 1rem 2.5rem;
+          border-radius: 30rem;
+          /*font-size: 1.75rem;
+          color: var(--ext-color);
+          background-color: var(--main-color);
+          font-weight: bold;
+          cursor: pointer;
+        
+          /*padding: 0.75rem;
+          margin-: 1rem;
+          background-color: var(--main-color);
+          color: var(--ext-color);
+          border-radius: 1.37rem;
+          cursor: pointer;
+          font-weight: bold;
+        }*/
 
-  /*padding: 0.75rem;
-  margin-: 1rem;
-  background-color: var(--main-color);
-  color: var(--ext-color);
-  border-radius: 1.37rem;
-  cursor: pointer;
-  font-weight: bold;*/
-}
-
-.body .freeship{
+.body .freeship {
   background-color: var(--ext-color);
   display: flex;
   align-items: center;
@@ -81,13 +79,32 @@ section {
   padding: 0 7%;
   margin: 2rem 7%;
 }
+.freeship {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--main-color); /* Başlangıç rengi */
+  animation: colorChange 5s infinite; /* 5 saniyede bir renk değişimi animasyonu */
+}
+
+/* Renk değişimi animasyonu tanımı */
+@keyframes colorChange {
+  0% {
+    color: var(--main-color); /* Başlangıç rengi */
+  }
+  50% {
+    color: var(--ext-color); /* Yeni renk */
+  }
+  100% {
+    color: var(--main-color); /* Başlangıç rengi */
+  }
+}
 
 /* header start*/
 
 /* logo büyüklüğü*/
 .header .logo img {
-    height: 7rem;
-  }
+  height: 7rem;
+}
 
 .header {
   background-color: var(--ext-color);
@@ -97,9 +114,9 @@ section {
   padding: 0 7%;
   margin: 2rem 7%;
   border-radius: 30rem;
-  box-shadow: 0px 0px 17px -2px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 17px -2px rgba(0, 0, 0, 0.75);
   /*headerın scroll boyunca üstte sabitlenmesi için*/
-  position: sticky; 
+  position: sticky;
   top: 0;
   z-index: 1000; /*headerın üstte kalabilmesi için*/
 }
@@ -108,13 +125,13 @@ section {
   background-color: var(--black-color);
   display: flex;
   padding: 1rem;
-  color:white;
-  justify-content:center;
+  color: white;
+  justify-content: center;
   font-size: 1.5rem;
   margin: 0 auto;
 }
 
-.header .navbar a{
+.header .navbar a {
   margin: 0 1rem;
   font-size: 1.6rem;
   color: var(--black-color);
@@ -122,103 +139,190 @@ section {
 }
 
 .header .navbar .active,
-.header .navbar a:hover{
+.header .navbar a:hover {
   border-color: var(--main-color);
-  padding-bottom: 0.5rem ;
+  padding-bottom: 0.5rem;
 }
 
-.header .buttons button{
+.header .buttons button {
   cursor: pointer;
   font-size: 2.5rem;
   margin-left: 2rem;
   background-color: transparent;
 }
 
-  /* header end*/
+/* header end*/
 
-  /*home start*/
-  
-  .home {
-    min-height: 80vh;
-    background: url(../images/home.png);
-    background-size: cover;
-    background-position: center;
-    margin-top: -11.25rem;
-    display: flex;
-    align-items: center;
-  }
+/*home start*/
 
-  .home .content{
-    max-width: 60rem;
-  }
+.home {
+  min-height: 80vh;
+  background: url("../images/home.png");
+  background-size: cover;
+  background-position: center;
+  margin-top: -11.25rem;
+  display: flex;
+  align-items: center;
+}
 
-  .home .content h3{
-    font-size: 6rem;
-    color: var(--ext-color);
-  }
+.home .content {
+  max-width: 60rem;
+}
 
-  .home .content p{
-    font-size: 2rem;
-    font-weight: 300;
-    line-height: 1.8;
-    padding: 1rem 0;
-    color: var(--ext-color);
-    margin-left: 0.45rem;
-  }
-  /*home end*/
+.home .content h3 {
+  font-size: 6rem;
+  color: var(--ext-color);
+}
 
-  /* CSS stil kodları */
-  .item {
-    width: 200px; /* Resimlerin genişliği */
-   
-  }
+.home .content p {
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.8;
+  padding: 1rem 0;
+  color: var(--ext-color);
+  margin-left: 0.45rem;
+}
+/*home end*/
 
-  .image-container {
-    width: 100%;
-    padding-top: 100%; /* Resimleri kare boyutunda tutmak için oran olarak 1:1 kullanır */
-    position: relative;
-  }
+ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  .img-fluid {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Resmi kare boyutunda kesecektir */
-    cursor: pointer; /* Farenin üstüne geldiğinde imleç tipini değiştirir */
-    padding: 1rem 1rem;
-    border-radius: 5rem;
-  }
+li {
+  width: 250px;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
 
-  .modal {
-    display: none; /* Sayfa yüklenirken modalı gizler */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Modalın arka plan rengi ve opaklığı */
-  }
+/* Ürün resimlerini düzenleyelim */
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
 
-  .modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Modalı dikey ve yatay ortalamaya alır */
-    background-color: var(--ext-color); /* Modal içeriğinin arka plan rengi */
-    padding: 20px;
-    border-radius: 4.5rem;
-    text-align: center;
-    z-index: 500;
-  }
+/* Ürün başlığı ve açıklaması */
+h2 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
 
-  .modal-img {
-    max-width: 75%;
-    max-height: 80vh; /* Resmin modal içinde büyük olmaması için ayarlayın */
-    padding: auto;
-    margin: 3rem;;
-  }
+p {
+  font-size: 1rem;
+  color: #555;
+}
 
-  .image-caption {
-    display: none;
-  }
+/* Fiyat bilgisi */
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #036;
+}
 
+h1 {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+/*FOOTER*/
+
+.footer {
+  background: url(../images/home.png);
+  background-color: var(--ext-color);
+  height: 57vh;
+  background-size: cover;
+  align-items: center;
+  text-align: center;
+}
+
+.soci {
+  color: var(--ext-color);
+  font-size: 2rem;
+  font-weight: bolder;
+  background-color: var(--main-color);
+  margin: auto;
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 2.5rem;
+}
+
+.footer .btn-soc {
+  padding: 2rem 0;
+}
+
+.footer .btn-soc a {
+  width: 5rem;
+  height: 5rem;
+  line-height: 5rem;
+  font-size: 2rem;
+  border: var(--main-color);
+  background-color: var(--main-color);
+  border-radius: 50%;
+  margin: 0.3rem;
+}
+
+.footer .btn-soc a:hover {
+  background-color: var(--black-color);
+}
+
+.footer .telveadres {
+  background-color: var(--main-color);
+  color: var(--ext-color);
+  text-align: center;
+  margin: 1rem;
+  display: inline-block;
+  padding: 1.2rem 2rem;
+  font-size: 2rem;
+  border-radius: 7.77rem;
+  margin-left: -3rem;
+  font-weight: bold;
+}
+
+.footer .telad-but {
+  padding: 0.2rem 0;
+  padding-bottom: 2rem;
+}
+
+.footer .telad-but a {
+  width: 5rem;
+  height: 5rem;
+  line-height: 5rem;
+  font-size: 2rem;
+  border: var(--main-color);
+  background-color: var(--main-color);
+  border-radius: 50%;
+  margin-right: 4rem;
+  margin-left: -4rem;
+}
+
+.footer .copyright {
+  background-color: var(--ext-color);
+  color: var(--main-color);
+  font-weight: bold;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  display: inline-block;
+  border-radius: 2.5rem;
+}
+
+.footer .telno {
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+.footer .adres {
+  text-align: center;
+  font-weight: bold;
+  color: var(--main-color);
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 2.5rem;
+}
+
+/* FOOTER*/
