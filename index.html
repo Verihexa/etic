@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!--meta charset="UTF-8" /-->
+  
+
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
@@ -14,7 +16,7 @@
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
-    <div class="freeship" >500 TL ve Üzeri Ücretsiz Kargo</div>
+     <div class="freeship" >500 TL ve Üzeri Ücretsiz Kargo</div>
 
     <!-- header kısmı başlangıç -->
     <header class="header">
@@ -55,10 +57,92 @@
         <div class="content">
           <h3><br>BUTİK İSMİ</h3>
           <p> BLA BLA İÇİN EN İYİ SEÇİMLER BURADA</p>
-        <a href="#" class="btn">Sipariş Ver</a>
+        <a href="#" class="home-btn">Sipariş Ver</a>
         </div>
       </section>
       <!--home kısmı bitiş-->
-     
+
+      <!--utku-->
+      <section class="menu">
+        <h1>ÜRÜNLER</h1>
+      
+        <!-- Resim ve Açıklama -->
+        <div class="item">
+          <div class="image-container">
+            <img class="img-fluid" src="images/carbon.png" alt="Product Image" />
+          </div>
+          <p class="image-caption">Bu resmin açıklaması</p>
+        </div>
+      
+        <!-- Modal -->
+        <div class="modal" id="modal1">
+          <div class="modal-content">
+            <img class="modal-img" src="" alt="Product Image" />
+            <p class="modal-caption"></p>
+            <button class="btn">Kapat</button>
+          </div>
+        </div>
+
+         <!-- Resim ve Açıklama.1-->
+         <div class="item">
+          <div class="image-container">
+            <img class="img-fluid" src="images/carbon1.png" alt="Carbon Image1" />
+          </div>
+          <p class="image-caption">Bu resmin açıklaması</p>
+        </div>
+      
+        <!-- Modal.1 -->
+        <div class="modal" id="modal2">
+          <div class="modal-content">
+            <img class="modal-img" src="" alt="Carbon Image1" />
+            <p class="modal-caption"></p>
+            <button class="btn">Kapat</button>
+          </div>
+        </div>
+      </section>
+      
+        
+      
+        <script>
+          // Portföy öğelerini seçelim ve modalı ve içerisindeki öğeleri değişkenlere atayalım
+          const portfolioItems = document.querySelectorAll('.item');
+          const modal = document.querySelector('#modal1');
+          const modalImg = modal.querySelector('.modal-img');
+          const modalCaption = modal.querySelector('.modal-caption');
+      
+          // Her bir resim için tıklama olaylarına dinleyici ekleme
+          portfolioItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+              // Resim ve açıklamanın bilgilerini al
+              const imageSrc = item.querySelector('img').src;
+              const imageCaption = item.querySelector('.image-caption').textContent;
+      
+              // Modal içeriğini güncelle
+              modalImg.src = imageSrc;
+              modalCaption.textContent = imageCaption;
+      
+              // Modalı aç
+              modal.style.display = 'block';
+            });
+          });
+      
+          // Modal kapatma işlemi
+          const btn = document.querySelector('.btn');
+          btn.addEventListener('click', function() {
+            // Modalı kapat
+            modal.style.display = 'none';
+          });
+      
+          // Modal dışına tıklanınca da kapat
+          window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+              // Modalı kapat
+              modal.style.display = 'none';
+            }
+          });
+        </script>
+    
+    
+
   </body>
 </html>

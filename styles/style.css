@@ -35,13 +35,14 @@ html {
 
 body {
   background-color: var(--main-color);
+  height: 500vh;
 }
 
 section {
   padding: 3.5rem 7%;
 }
 
-.btn{
+.home-btn{ /*home kısmı sipariş ver butonu*/
   margin-top: 2rem;
   display: inline-block;
   padding: 2rem 3.75rem;
@@ -50,6 +51,26 @@ section {
   color: var(--main-color);
   background-color: var(--ext-color);
   font-weight: bold;
+}
+
+.btn{ /*ürün butonları*/
+  margin-top: 2rem;
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 30rem;
+  /*font-size: 1.75rem;*/
+  color: var(--ext-color);
+  background-color: var(--main-color);
+  font-weight: bold;
+  cursor: pointer;
+
+  /*padding: 0.75rem;
+  margin-: 1rem;
+  background-color: var(--main-color);
+  color: var(--ext-color);
+  border-radius: 1.37rem;
+  cursor: pointer;
+  font-weight: bold;*/
 }
 
 .body .freeship{
@@ -145,3 +166,59 @@ section {
     margin-left: 0.45rem;
   }
   /*home end*/
+
+  /* CSS stil kodları */
+  .item {
+    width: 200px; /* Resimlerin genişliği */
+   
+  }
+
+  .image-container {
+    width: 100%;
+    padding-top: 100%; /* Resimleri kare boyutunda tutmak için oran olarak 1:1 kullanır */
+    position: relative;
+  }
+
+  .img-fluid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Resmi kare boyutunda kesecektir */
+    cursor: pointer; /* Farenin üstüne geldiğinde imleç tipini değiştirir */
+    padding: 1rem 1rem;
+    border-radius: 5rem;
+  }
+
+  .modal {
+    display: none; /* Sayfa yüklenirken modalı gizler */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Modalın arka plan rengi ve opaklığı */
+  }
+
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Modalı dikey ve yatay ortalamaya alır */
+    background-color: var(--ext-color); /* Modal içeriğinin arka plan rengi */
+    padding: 20px;
+    border-radius: 4.5rem;
+    text-align: center;
+    z-index: 500;
+  }
+
+  .modal-img {
+    max-width: 75%;
+    max-height: 80vh; /* Resmin modal içinde büyük olmaması için ayarlayın */
+    padding: auto;
+    margin: 3rem;;
+  }
+
+  .image-caption {
+    display: none;
+  }
+
