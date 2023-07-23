@@ -135,13 +135,26 @@ section {
   margin: 0 1rem;
   font-size: 1.6rem;
   color: var(--black-color);
-  border-bottom: 0.1rem solid transparent;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
 }
 
-.header .navbar .active,
-.header .navbar a:hover {
-  border-color: var(--main-color);
-  padding-bottom: 0.5rem;
+.header .navbar a:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0.1rem;
+  background-color: var(--main-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.header .navbar a.active:after,
+.header .navbar a:hover:after {
+  width: 100%;
 }
 
 .header .buttons button {
@@ -326,3 +339,11 @@ h1 {
 }
 
 /* FOOTER*/
+
+.copyrighttext{
+  color: var(--main-color);
+}
+.copyrighttext:hover{
+  color: var(--main-color);
+  text-decoration: underline;
+}
