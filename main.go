@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"encoding/json"
 	"html/template"
 	"log"
 	"net/http"
@@ -34,6 +35,7 @@ func main() {
 	http.HandleFunc("/product/", productDetailHandler)
 	http.Handle("/styles/", http.StripPrefix("/styles/", http.FileServer(http.Dir("styles"))))
 	http.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.Dir("images"))))
+	http.HandleFunc("/cart", cartHandler)
 
 	port := ":8080"
 	log.Println("Server started on port", port)
@@ -111,6 +113,32 @@ func renderTemplate(w http.ResponseWriter, tmplFile string, data interface{}) {
 	err = tmpl.Execute(w, data)
 	if err != nil {
 		http.Error(w, "Failed to render template", http.StatusInternalServerError)
+		return
+	}
+}
+
+func cartHandler(w http.ResponseWriter, r *http.Request) {
+	// Sepet bilgilerini localStorage'dan al
+	cartItems := []Product{}
+	cartItemsJSON := r.FormValue("cartItems")
+	if cartItemsJSON != "" {
+		if err := json.Unmarshal([]byte(cartItemsJSON), &cartItems); err != nil {
+			log.Println("Failed to unmarshal cart items:", err)
+		}
+	}
+
+	// Cart.html dosyasını parse et
+	t, err := template.ParseFiles("cart.html")
+	if err != nil {
+		log.Println("Failed to parse cart.html template:", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		return
+	}
+
+	// Sepet bilgilerini cart.html dosyasına gönder
+	if err := t.Execute(w, cartItems); err != nil {
+		log.Println("Failed to execute template:", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
 }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sepet</title>
+</head>
+<body>
+    <h1>Sepet</h1>
+
+    <ul id="cartList">
+      <!-- Sepete eklenen ürünler burada listelenecek -->
+    </ul>
+
+    <script>
+      // localStorage'dan sepeti çekin
+      var cart = localStorage.getItem("cart");
+      if (cart) {
+        cart = JSON.parse(cart);
+        var cartList = document.getElementById("cartList");
+
+        // Sepet içeriğini listeleyin
+        for (var i = 0; i < cart.length; i++) {
+          var product = cart[i];
+          var listItem = document.createElement("li");
+          listItem.textContent = "Ürün Adı: " + product.name + ", Fiyat: " + product.price + " TL";
+          cartList.appendChild(listItem);
+        }
+      }
+    </script>
+</body>
+</html>

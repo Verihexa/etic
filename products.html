@@ -11,5 +11,34 @@
     <p>{{ .Description }}</p>
     <p>Price: {{ .Price }} TL</p>
     <img src="{{ .ImageURL }}" alt="{{ .Name }}">
+    <button onclick="addToCart()">Add to Cart</button>
+    <a href="/cart">View Cart</a> <!-- Bu kısmı ekledik -->
+    
+    <script>
+        function addToCart() {
+            // Sepete eklenecek ürünün ID'si ve diğer bilgileri buradan alınabilir
+            const productId = "{{ .ID }}";
+            const productName = "{{ .Name }}";
+            const productPrice = "{{ .Price }}";
+            // Diğer ürün özelliklerini buraya ekleyin
+
+            // Ürün bilgilerini JSON formatına çevirip localStorage'a ekleyin
+            const product = {
+                id: productId,
+                name: productName,
+                price: productPrice,
+                // Diğer ürün özelliklerini buraya ekleyin
+            };
+
+            // Sepete eklenen ürünleri localStorage'da bir dizi olarak saklayın
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.push(product);
+
+            // Diziyi JSON formatına çevirip localStorage'a tekrar ekleyin
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+            alert('Product added to cart!');
+        }
+    </script>
 </body>
 </html>
