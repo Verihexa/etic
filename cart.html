@@ -9,24 +9,87 @@
     <h1>Sepet</h1>
 
     <ul id="cartList">
-      <!-- Sepete eklenen ürünler burada listelenecek -->
+        <!-- Sepete eklenen ürünler burada listelenecek -->
     </ul>
 
+
     <script>
-      // localStorage'dan sepeti çekin
-      var cart = localStorage.getItem("cart");
-      if (cart) {
-        cart = JSON.parse(cart);
+        // localStorage'dan sepeti çekin
+        var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
         var cartList = document.getElementById("cartList");
 
         // Sepet içeriğini listeleyin
-        for (var i = 0; i < cart.length; i++) {
-          var product = cart[i];
-          var listItem = document.createElement("li");
-          listItem.textContent = "Ürün Adı: " + product.name + ", Fiyat: " + product.price + " TL";
-          cartList.appendChild(listItem);
+        function showCartItems() {
+            cartList.innerHTML = ""; // Sepet içeriğini temizle
+
+            // Ürünleri gruplayarak listeleyin
+            var groupedCartItems = groupCartItems(cartItems);
+
+            for (var i = 0; i < groupedCartItems.length; i++) {
+                var product = groupedCartItems[i];
+                var productName = product.name;
+                var productPrice = product.price;
+                var productCount = product.count;
+
+                // Ürünü sepette listele
+                var listItem = document.createElement("li");
+                listItem.textContent = "Ürün Adı: " + productName + ", Fiyat: " + productPrice + " TL, Adet: " + productCount;
+
+                // Silme butonunu oluştur
+                var deleteButton = document.createElement("button");
+                deleteButton.textContent = "Sil";
+                deleteButton.setAttribute("data-id", product.id);
+                deleteButton.onclick = function () {
+                    var productId = this.getAttribute("data-id");
+                    deleteOneProductFromCart(productId);
+                };
+
+                listItem.appendChild(deleteButton);
+                cartList.appendChild(listItem);
+            }
         }
-      }
+
+        // Sepet içeriğini gruplayarak listeleyin
+        function groupCartItems(items) {
+            var groupedItems = [];
+            var itemIdSet = new Set();
+
+            items.forEach(function (item) {
+                if (!itemIdSet.has(item.id)) {
+                    itemIdSet.add(item.id);
+                    item.count = 1;
+                    groupedItems.push(item);
+                } else {
+                    var existingItem = groupedItems.find(function (groupedItem) {
+                        return groupedItem.id === item.id;
+                    });
+                    existingItem.count++;
+                }
+            });
+
+            return groupedItems;
+        }
+
+        // Sepetteki bir ürünü sil
+        function deleteOneProductFromCart(productId) {
+            var indexToDelete = -1;
+            for (var i = 0; i < cartItems.length; i++) {
+                if (cartItems[i].id === productId) {
+                    indexToDelete = i;
+                    break;
+                }
+            }
+
+            if (indexToDelete !== -1) {
+                cartItems.splice(indexToDelete, 1);
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                showCartItems(); // Sepet içeriğini güncelle
+            }
+        }
+
+        // Sepetteki ürünleri göster
+        showCartItems();
     </script>
+
 </body>
 </html>
