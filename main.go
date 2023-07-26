@@ -6,6 +6,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"path/filepath"
 	"strconv"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -36,6 +37,8 @@ func main() {
 	http.Handle("/styles/", http.StripPrefix("/styles/", http.FileServer(http.Dir("styles"))))
 	http.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.Dir("images"))))
 	http.HandleFunc("/cart", cartHandler)
+	http.HandleFunc("/product/styles/", productCSSHandler)
+	http.HandleFunc("/product/images/", productImageHandler)
 
 	port := ":8080"
 	log.Println("Server started on port", port)
@@ -141,4 +144,12 @@ func cartHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		return
 	}
+}
+
+func productCSSHandler(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "styles/"+filepath.Base(r.URL.Path))
+}
+
+func productImageHandler(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "images/"+filepath.Base(r.URL.Path))
 }

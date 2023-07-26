@@ -39,6 +39,7 @@ body {
 
 section {
   padding: 3.5rem 7%;
+  margin-bottom: 20px;
 }
 
 /*.btn{ /*ürün butonları
@@ -171,13 +172,14 @@ li {
   border-radius: 5px;
 }
 
-/* Ürün resimlerini düzenleyelim */
-img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
+.img {
+  width: 200px; 
+  height: 200px; 
+  object-fit: cover;
+  border: 2px solid #ccc;
+  border-radius: 10px; 
+  transform: scale(1.2);
 }
-
 /* Ürün başlığı ve açıklaması */
 h2 {
   font-size: 1.2rem;
@@ -233,8 +235,7 @@ h1 {
     float: right;
     margin-right: 1%;
   }
-  
-  
+
   .prod{
     float: right;
     font-weight: bold;
@@ -252,8 +253,6 @@ h1 {
   .prod-body{
     height: 100vh;
   }
-
-
 
 /*FOOTER*/
 
