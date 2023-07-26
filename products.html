@@ -1,18 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>{{ .Name }}</title>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
-    <h1>{{ .Name }}</h1>
-    <p>{{ .Description }}</p>
-    <p>Price: {{ .Price }} TL</p>
-    <img src="{{ .ImageURL }}" alt="{{ .Name }}">
-    <button onclick="addToCart()">Add to Cart</button>
-    <a href="/cart">View Cart</a> <!-- Bu kısmı ekledik -->
+    <link rel="stylesheet" href="styles/products.css" />
+  </head>
+  <div class="freeship">500 TL ve Üzeri Ücretsiz Kargo</div>
+
+    <!-- header kısmı başlangıç -->
+    <header class="header">
+      <!--logo-->
+
+      <a href="#" class="logo">
+        <img src="images/logo.jpg" alt="logo" />
+      </a>
+
+      <!--navigation bar-->
+
+      <nav class="navbar">
+        <a href="#homepage">Anasayfa</a>
+        <a href="#products">Ürünler</a>
+        <a href="#">Hakkımızda</a>
+        <a href="#contactus">Bize Ulaşın</a>
+      </nav>
+
+      <!--navbar buttons-->
+
+      <div class="buttons">
+        <button>
+          <i
+            class="fa-solid fa-magnifying-glass fa-bounce"
+            style="color: #034f56"
+          ></i>
+        </button>
+        <button>
+          <i class="fa-solid fa-cart-shopping" style="color: #034f56"></i>
+        </button>
+        <button>
+          <i class="fa-solid fa-bars" style="color: #034f56"></i>
+        </button>
+      </div>
+    </header>
+    <!-- header kısmı bitiş-->
+
+  <body>
+    <section><h1>{{ .Name }}</h1>
+    <p class="prod">{{ .Description }}</p><br>
+    <p class="prod">{{ .Price }} TL</p><br>
+    <img class="img" src="{{ .ImageURL }}" alt="{{ .Name }}" /><br>
+    <a class="cart" href="/cart">Sepeti Görüntüle</a>
+    <button class="cart-add" onclick="addToCart()">Sepete ekle</button>
+    </section>
+    
+    <!-- Bu kısmı ekledik -->
+    
     
     <script>
         function addToCart() {
@@ -37,8 +86,65 @@
             // Diziyi JSON formatına çevirip localStorage'a tekrar ekleyin
             localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
-            alert('Product added to cart!');
         }
     </script>
+
+    <!--ekleme bitiş-->
+
+  </body>
+  <footer style="margin: auto 0 0 0;">
+    <section class="footer">
+      <div class="soci">
+        <h1 class="soci">BİZE ULAŞIN</h1>
+      </div>
+      <div class="btn-soc">
+        <a
+          href="https://www.instagram.com/verihexa/"
+          class="fa-brands fa-whatsapp"
+          style="color: #e9e0d2"
+        ></a>
+        <a
+          href="https://www.instagram.com/verihexa/"
+          class="fa-brands fa-instagram"
+          style="color: #e9e0d2"
+        ></a>
+        <a
+          href="https://www.instagram.com/verihexa/"
+          class="fa-brands fa-twitter"
+          style="color: #e9e0d2"
+        ></a>
+      </div>
+
+      <div class="telad-but">
+        <a
+          href="https://www.instagram.com/verihexa/"
+          class="fa-solid fa-phone"
+          style="color: #e9e0d2"
+        ></a>
+        <p class="telveadres">0553 174 3703</p>
+        <br />
+        <a
+          href="https://www.instagram.com/verihexa/"
+          class="fa-solid fa-location-dot"
+          style="color: #e9e0d2"
+        ></a>
+        <p class="telveadres">
+          Üniversite Mahallesi, Naz Sokak, No:8 Avcılar/İstanbul
+        </p>
+      </div>
+
+      <!-- Copyright Section-->
+      <div class="copyright">
+        <div id="contactus" class="container">
+          <a
+            class="copyrighttext"
+            href="https://www.verihexa.com"
+            target="_blank"
+            >Copyright &copy; Verihexa Software Solutions 2023</a
+          >
+        </div>
+      </div>
+    </section>
+  </footer>
 </body>
 </html>

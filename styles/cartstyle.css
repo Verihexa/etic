@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#cartList {
+    list-style: none;
+    padding: 0;
+}
+
+#cartList li {
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+}
+
+#cartList li button {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#totalPrice {
+    font-weight: bold;
+    color: #006400;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Products.html */
+
+.cart-add{
+    background-color: var(--ext-color);
+    color: var(--main-color);
+    border: var(--black-color);
+    font-weight: bold;
+    padding: 1rem 1rem;
+    border-radius: 2.5rem;
+    font-size: 1.25rem;
+    margin: 0.5rem 0.3rem;
+    cursor: pointer;
+    float: right;
+  
+  }
+  
+  
+  .cart{
+    background-color: var(--ext-color);
+    color: var(--main-color);
+    border: var(--black-color);
+    font-weight: bold;
+    padding: 1rem 1rem;
+    border-radius: 2.5rem;
+    font-size: 1.25rem;
+    margin: 0.5rem 0.3rem;
+    margin-right: 7%;
+    cursor: pointer;
+    float: right;
+    margin-right: 1%;
+  }
+  
+  
+  .prod{
+    float: right;
+    font-weight: bold;
+    text-align: right;
+    margin-right: 20%;
+    justify-content:right;
+    text-align: justify;
+    width: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .prod-body{
+    height: 100vh;
+  }
