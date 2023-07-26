@@ -12,13 +12,14 @@
         <!-- Sepete eklenen ürünler burada listelenecek -->
     </ul>
 
+    <p>Toplam Fiyat: <span id="totalPrice">0</span></p>
 
     <script>
         // localStorage'dan sepeti çekin
         var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
         var cartList = document.getElementById("cartList");
 
-        // Sepet içeriğini listeleyin
+        // Sepet içeriğini listeleyin ve toplam fiyatı hesaplayın
         function showCartItems() {
             cartList.innerHTML = ""; // Sepet içeriğini temizle
 
@@ -47,6 +48,11 @@
                 listItem.appendChild(deleteButton);
                 cartList.appendChild(listItem);
             }
+
+            // Toplam fiyatı hesapla ve göster
+            var totalPrice = calculateTotalPrice(groupedCartItems);
+            var totalPriceElement = document.getElementById("totalPrice");
+            totalPriceElement.textContent = totalPrice + " TL";
         }
 
         // Sepet içeriğini gruplayarak listeleyin
@@ -87,9 +93,17 @@
             }
         }
 
+        // Toplam fiyatı hesapla
+        function calculateTotalPrice(items) {
+            var totalPrice = 0;
+            for (var i = 0; i < items.length; i++) {
+                totalPrice += items[i].price * items[i].count;
+            }
+            return totalPrice;
+        }
+
         // Sepetteki ürünleri göster
         showCartItems();
     </script>
-
 </body>
 </html>
