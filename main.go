@@ -39,6 +39,8 @@ func main() {
 	http.HandleFunc("/cart", cartHandler)
 	http.HandleFunc("/product/styles/", productCSSHandler)
 	http.HandleFunc("/product/images/", productImageHandler)
+	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
+	http.HandleFunc("/product/js/", productJsHandler)
 
 	port := ":8080"
 	log.Println("Server started on port", port)
@@ -152,4 +154,8 @@ func productCSSHandler(w http.ResponseWriter, r *http.Request) {
 
 func productImageHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, "images/"+filepath.Base(r.URL.Path))
+}
+
+func productJsHandler(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "js/"+filepath.Base(r.URL.Path))
 }
