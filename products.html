@@ -58,13 +58,15 @@
     <!-- header kısmı bitiş-->
 
   <body>
-    <section><h1>{{ .Name }}</h1>
-    <p class="prod">{{ .Description }}</p><br>
-    <p class="prod">{{ .Price }} TL</p><br>
-    <img class="img" src="{{ .ImageURL }}" alt="{{ .Name }}" /><br>
-    <a class="cart" href="/cart">Sepeti Görüntüle</a>
-    <button class="cart-add" onclick="addToCart()">Sepete ekle</button>
-    </section>
+    <section>
+      <h1 class="name">{{ .Name }}</h1>
+      <span><p class="prod">{{ .Description }}</p><br>
+      <p class="prod">{{ .Price }} TL</p><br>
+      </span>
+      <img class="img" src="{{ .ImageURL }}" alt="{{ .Name }}" />
+      <a class="cart" href="/cart">Sepeti Görüntüle</a>
+      <button class="cart-add" onclick="addToCart()">Sepete ekle</button>
+      </section>
     
     <!-- Bu kısmı ekledik -->
     
