@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sepet</title>
     <link rel="stylesheet" href="styles/cartstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
+
 <body>
     <h1>Sepet</h1>
 
@@ -13,7 +16,12 @@
         <!-- Sepete eklenen ürünler burada listelenecek -->
     </ul>
 
-    <p>Toplam Fiyat: <span id="totalPrice">0</span></p>
+    <p>Toplam Fiyat: <span id="totalPrice">0</span> TL</p>
+
+    <!-- Siparişi Tamamla Butonu -->
+    <a id="whatsappButton" href="#" target="_blank">
+        <i class="fab fa-whatsapp"></i> Siparişi Tamamla
+    </a>
 
     <script>
         // localStorage'dan sepeti çekin
@@ -54,25 +62,27 @@
             var totalPrice = calculateTotalPrice(groupedCartItems);
             var totalPriceElement = document.getElementById("totalPrice");
             totalPriceElement.textContent = totalPrice + " TL";
+
+            // WhatsApp butonunu göster veya gizle
+            var whatsappButton = document.getElementById("whatsappButton");
+            whatsappButton.style.display = cartItems.length > 0 ? "inline-block" : "none";
         }
 
         // Sepet içeriğini gruplayarak listeleyin
         function groupCartItems(items) {
             var groupedItems = [];
-            var itemIdSet = new Set();
+            var itemIdMap = new Map(); // Ürünleri gruplamak için Map kullanın
 
             items.forEach(function (item) {
-                if (!itemIdSet.has(item.id)) {
-                    itemIdSet.add(item.id);
-                    item.count = 1;
-                    groupedItems.push(item);
+                if (!itemIdMap.has(item.id)) {
+                    itemIdMap.set(item.id, { ...item, count: 1 }); // Yeni ürün ekle
                 } else {
-                    var existingItem = groupedItems.find(function (groupedItem) {
-                        return groupedItem.id === item.id;
-                    });
-                    existingItem.count++;
+                    var existingItem = itemIdMap.get(item.id);
+                    existingItem.count += 1; // Ürün adedini artır
                 }
             });
+
+            groupedItems = Array.from(itemIdMap.values()); // Map'teki değerleri alın ve gruplandırılmış ürünleri oluşturun
 
             return groupedItems;
         }
@@ -105,6 +115,33 @@
 
         // Sepetteki ürünleri göster
         showCartItems();
+
+        // WhatsApp iletişim linki oluştur ve butona ekle
+        var phoneNumber = "+905552000239";
+        var preFilledMessage = getCartItemsText(cartItems);
+        var encodedMessage = encodeURIComponent(preFilledMessage);
+
+        var whatsappButton = document.getElementById("whatsappButton");
+        whatsappButton.href = "https://wa.me/" + phoneNumber + "?text=" + encodedMessage;
+
+        // Sepet içeriğini sadece ürün adları ve adetleri olarak alın
+        function getCartItemsText(items) {
+            var cartItemsText = "Sepetteki Ürünler:\n";
+
+            // Aynı ürünleri gruplandırın ve adetlerini birleştirin
+            var groupedItems = groupCartItems(items);
+
+            groupedItems.forEach(function (product) {
+                var productName = product.name;
+                var productCount = product.count;
+                cartItemsText += "- " + productName + ", Adet: " + productCount + "\n";
+            });
+
+            var totalPrice = calculateTotalPrice(groupedItems);
+            cartItemsText += "Toplam Fiyat: " + totalPrice + " TL";
+            return cartItemsText;
+        }
     </script>
 </body>
+
 </html>
