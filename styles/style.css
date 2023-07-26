@@ -196,7 +196,9 @@ section {
   margin-left: 0.45rem;
 }
 /*home end*/
-
+.prod-tit{
+  color: var(--ext-color);
+}
 ul {
   list-style: none;
   display: flex;
@@ -208,9 +210,38 @@ li {
   margin: 10px;
   padding: 15px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 10px;  
 }
 
+/* <h2> başlığı için stil */
+li h2 {
+  /* Burada başlık için gerekli stil özelliklerini belirleyebilirsiniz */
+  /* Örnek olarak: */
+  color: var(--ext-color); /* Metin rengi */
+  font-size: 18px; /* Yazı boyutu */
+  /* ... diğer stiller ... */
+}
+
+li h2:hover{
+  text-decoration: underline;
+}
+
+/* <p> içindeki ürün açıklaması için stil */
+li p {
+  /* Burada açıklama için gerekli stil özelliklerini belirleyebilirsiniz */
+  /* Örnek olarak: */
+  color: var(--ext-color); /* Açıklama metni rengi */
+  font-size: 10px;
+}
+
+/* <p> içindeki fiyat bilgisi için stil */
+li p:last-child {
+  /* Burada fiyat bilgisi için gerekli stil özelliklerini belirleyebilirsiniz */
+  /* Örnek olarak: */
+  color: var(--ext-color); /* Fiyat metni rengi (örneğin kırmızı) */
+  font-size: 18px;
+  /* ... diğer stiller ... */
+}
 /* Ürün resimlerini düzenleyelim */
 img {
   width: 100%;
@@ -346,4 +377,13 @@ h1 {
 .copyrighttext:hover{
   color: var(--main-color);
   text-decoration: underline;
+}
+
+.img{
+  width: 200px; 
+height: 200px; 
+object-fit: contain;
+border: 2px solid #ccc;
+border-radius: 10px; 
+margin: 1rem 1rem;
 }
