@@ -54,7 +54,7 @@ h1 {
 
 #totalPrice {
     font-weight: bold;
-    color: var(--black-color);
+    color: var(--ext-color);
     margin-top: 2rem;
     text-align: center;
 }
