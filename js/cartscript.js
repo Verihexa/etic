@@ -21,7 +21,7 @@ function showCartItems() {
 
         // Silme butonunu oluştur
         var deleteButton = document.createElement("button");
-        deleteButton.textContent = "Sil";
+        deleteButton.textContent = "SİL";
         deleteButton.setAttribute("data-id", product.id);
         deleteButton.onclick = function () {
             var productId = this.getAttribute("data-id");

@@ -17,7 +17,6 @@ body {
     padding: 0;
     background: url(../images/home.png);
     background-color: var(--main-color);
-    height: 500vh;
 }
 
 h1 {
@@ -33,7 +32,7 @@ h1 {
 
 #cartList li {
     margin: 1rem 2rem;
-    padding: 1rem 5rem;
+    padding: 1.5rem 5rem;
     border: 1px solid #ccc;
     border-radius: 3rem;
     background-color: var(--ext-color);
@@ -41,15 +40,18 @@ h1 {
     display: flex;
     justify-content: space-between;
     text-align: center;
+    font-weight: bold;
 }
 
 #cartList li button {
     background-color: var(--main-color);
     color: var(--ext-color);
     border: none;
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem;
     border-radius: 3rem;
     cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 #totalPrice {
@@ -183,3 +185,13 @@ h1 {
     text-decoration: underline;
   }
 
+.btn-cntn{
+  background-color: var(--ext-color);
+    color: var(--main-color);
+    padding: 1rem 1rem;
+    border: 1rem;
+    border: var(--black-color);
+    border-radius: 3rem;
+    justify-content: center;
+    margin: 0 33.5%;
+}
