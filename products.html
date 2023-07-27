@@ -61,7 +61,7 @@
     <section>
       <h1 class="name">{{ .Name }}</h1>
       <span><p class="prod">{{ .Description }}</p><br>
-      <p class="prod">{{ .Price }} TL</p><br>
+      <p class="prod" id="price">{{ .Price }} TL</p><br>
       </span>
       <img class="img" src="{{ .ImageURL }}" alt="{{ .Name }}" />
       <a class="cart" href="/cart">Sepeti Görüntüle</a>
@@ -93,8 +93,21 @@
 
             // Diziyi JSON formatına çevirip localStorage'a tekrar ekleyin
             localStorage.setItem('cartItems', JSON.stringify(cartItems));
-
+            
         }
+        // localStorage'dan sepeti çekin
+    var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+// Sepet içeriğindeki ürün sayısını hesaplayın
+var cartItemCount = 0;
+for (var i = 0; i < cartItems.length; i++) {
+    cartItemCount += cartItems[i].count || 1; 
+}
+
+// Sepet içeriğindeki ürün sayısını gösterin
+var cartItemCountElement = document.getElementById("cartItemCount");
+cartItemCountElement.textContent = cartItemCount;
+//BURASI YENİ YAZILDI DÜZENLENECEK
     </script>
 
     <!--ekleme bitiş-->

@@ -172,17 +172,13 @@ li {
   border-radius: 5px;
 }
 
-.img {
-  width: 30rem; 
-  height: 30rem; 
-  object-fit: cover;
-  border: 2px solid #ccc;
-  border-radius: 10px; 
-  transform: scale(1.2);
-  margin-left: 7%;
-  max-width: 12rem;
-  height: auto;
-  object-fit: contain;
+.img{
+  width: 400px; 
+height: 400px; 
+object-fit: contain;
+border: 2px solid #ccc;
+border-radius: 10px; 
+margin: 1rem 1rem;
 }
 /* Ürün başlığı ve açıklaması */
 h2 {
@@ -224,6 +220,7 @@ h1 {
     margin: 0.5rem 0.3rem;
     cursor: pointer;
     float: right;
+    margin-top: 20%;
   
   }
   
@@ -240,7 +237,8 @@ h1 {
     margin-right: 20%;
     cursor: pointer;
     float: right;
-    margin-right: 1%;
+    margin-right: 50%;
+    margin-top: 20%;
   }
 
   .prod{
@@ -248,16 +246,20 @@ h1 {
     text-align: right;
     justify-content:right;
     width: auto;
-    padding-top: 2rem;
+    padding-top: 1rem;
     padding-bottom: 2rem;
     color: var(--ext-color);
     justify-content: space-between;
-    margin-right: 27%;
+    margin-right: 60%;
     font-size: 1.5rem;
     display: block;
     
   }
 
+.prod#price{
+  font-size: 3rem;
+  margin-right: 64%;
+}
 
 /*FOOTER*/
 
