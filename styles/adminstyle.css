@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,200&display=swap");
+
+/* font seçimi */
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+:root {
+  --main-color: #034f56;
+  --black-color: #121212;
+  --ext-color: #e9e0d2;
+  --border: 0.1rem solid rgba(255, 255, 255, 0.4);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url(../images/home.png);
+  background-color: var(--main-color);
+}
+
+h1 {
+  text-align: center;
+  margin-top: 3rem;
+  color: var(--ext-color);
+}
+
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--ext-color);
+  border: var(--border);
+  border-radius: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: var(--border);
+  border-radius: 0.5rem;
+}
+
+input[type="submit"] {
+  background-color: var(--main-color);
+  color: var(--ext-color);
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 3rem;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.btn {
+  background-color: var(--ext-color);
+  color: var(--main-color);
+  padding: 1rem 1rem;
+  border: 1rem;
+  border: var(--black-color);
+  border-radius: 3rem;
+  justify-content: center;
+}
+
+.btn-cntn {
+  background-color: var(--ext-color);
+  color: var(--main-color);
+  padding: 1rem 1rem;
+  border: 1rem;
+  border: var(--black-color);
+  border-radius: 3rem;
+  justify-content: center;
+  margin-left: 38%;
+}
+
+.price {
+  color: var(--ext-color);
+  font-size: 1.75rem;
+  text-align: center;
+  justify-content: center;
+  margin-top: 3rem;
+}
