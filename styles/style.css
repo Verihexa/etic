@@ -387,3 +387,111 @@ border: 2px solid #ccc;
 border-radius: 10px; 
 margin: 1rem 1rem;
 }
+
+.search-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--ext-color);
+  border: var(--border);
+  border-radius: 1rem;
+  margin-top: 2rem;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 1rem;
+  border: var(--border);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-container input::placeholder {
+  color: var(--main-color);
+  opacity: 0.7;
+}
+
+/* Hamburger menü düğmesini stilize edelim */
+.menu-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+#menuBtn {
+  display: none; /* Checkbox'ı gizleyelim */
+}
+
+#menuIcon {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #e9e0d2;
+  border: 1px solid #034f56;
+  border-radius: 5px;
+  position: absolute;
+  top: 40px;
+  right: 10px;
+}
+
+.menu li {
+  margin-bottom: 1rem;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #034f56;
+  font-size: 20px; /* Yazıları büyüt */
+  font-weight: bold; /* Yazıları kalınlaştır */
+  padding: 8px 15px;
+  display: block;
+}
+
+/* Hamburger menü özelliğini CSS kullanarak ekleyelim */
+#menuBtn:checked + .menu-icon .fa-bars {
+  display: none;
+}
+
+#menuBtn:checked + .menu-icon .fa-times {
+  display: block;
+}
+
+#menuBtn:checked ~ .menu {
+  display: block;
+}
+
+/* Hamburger menü simgesini şekillendirelim */
+.menu-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.menu-icon .fa-bars,
+.menu-icon .fa-times {
+  font-size: 24px;
+}
+
+.menu-icon .fa-times {
+  display: none;
+}
+
+/* Kapatma simgesini şekillendirelim */
+.close-icon {
+  display: none;
+  position: absolute;
+  bottom: -30px;
+  right: 10px;
+  cursor: pointer;
+}
+
+#menuBtn:checked ~ .menu .close-icon {
+  display: block;
+}

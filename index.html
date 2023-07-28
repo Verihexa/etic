@@ -29,18 +29,13 @@
       <nav class="navbar">
         <a href="#homepage" >Anasayfa</a>
         <a href="#products">Ürünler</a>
-        <a href="#">Hakkımızda</a>
         <a href="#contactus">Bize Ulaşın</a>
       </nav>
 
       <!--navbar buttons-->
 
       <div class="buttons">
-        <button>
-          <i
-            class="fa-solid fa-magnifying-glass fa-bounce"
-            style="color: #034f56"
-          ></i>
+        
         </button>
         <button>
           <a href="/cart" style="text-decoration: none; color: #034f56;">
@@ -51,9 +46,24 @@
         </a>
         </a>
         </button>
-        <button>
-          <i class="fa-solid fa-bars" style="color: #034f56"></i>
-        </button>
+        <div class="menu-container">
+          <input type="checkbox" id="menuBtn">
+          <div class="menu-icon">
+            <label for="menuBtn" id="menuIcon">
+              <i class="fas fa-bars" style="color: #034f56"></i>
+              <i class="fas fa-times" style="color: #034f56"></i>
+            </label>
+          </div>
+          <ul class="menu">
+            <li><a href="#">Anasayfa</a></li>
+            <li><a href="#">Ürünler</a></li>
+            <li><a href="#">Hakkımızda</a></li>
+            <li><a href="#">İletişim</a></li>
+            <div class="close-icon" onclick="document.getElementById('menuBtn').checked = false;">
+              <i class="fas fa-times" style="color: #034f56"></i>
+            </div>
+          </ul>
+        </div>
       </div>
     </header>
     <!-- header kısmı bitiş-->
