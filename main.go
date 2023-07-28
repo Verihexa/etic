@@ -14,6 +14,7 @@ import (
 
 var db *sql.DB
 var productTemplate = "products.html"
+var adminTemplate = "admin.html"
 
 type Product struct {
 	ID          int
@@ -24,7 +25,6 @@ type Product struct {
 }
 
 func main() {
-	// MySQL veritabanına bağlan
 	var err error
 	db, err = sql.Open("mysql", "root:admin@tcp(127.0.0.1:3306)/magaza")
 	if err != nil {
@@ -34,6 +34,7 @@ func main() {
 
 	http.HandleFunc("/", homeHandler)
 	http.HandleFunc("/product/", productDetailHandler)
+	http.HandleFunc("/admin", adminHandler)
 	http.Handle("/styles/", http.StripPrefix("/styles/", http.FileServer(http.Dir("styles"))))
 	http.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.Dir("images"))))
 	http.HandleFunc("/cart", cartHandler)
@@ -108,16 +109,47 @@ func getProductByID(id int) (Product, error) {
 	return p, nil
 }
 
+func adminHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method == http.MethodPost {
+		// Yeni ürün bilgilerini formdan al
+		name := r.FormValue("name")
+		description := r.FormValue("description")
+		priceStr := r.FormValue("price")
+		imageURL := r.FormValue("imageURL")
+
+		// Price stringini float64'e çevir
+		price, err := strconv.ParseFloat(priceStr, 64)
+		if err != nil {
+			http.Error(w, "Invalid price", http.StatusBadRequest)
+			return
+		}
+
+		// Yeni ürünü veritabanına ekle
+		_, err = db.Exec("INSERT INTO products (Name, Description, Price, ImageURL) VALUES (?, ?, ?, ?)", name, description, price, imageURL)
+		if err != nil {
+			http.Error(w, "Failed to insert new product", http.StatusInternalServerError)
+			return
+		}
+
+		// Ekleme başarılı oldu, yönlendir veya mesaj göster
+		http.Redirect(w, r, "/", http.StatusSeeOther)
+		return
+	}
+
+	// GET isteği alındığında, sadece admin.html dosyasını gösterin
+	renderTemplate(w, adminTemplate, nil)
+}
+
 func renderTemplate(w http.ResponseWriter, tmplFile string, data interface{}) {
 	tmpl, err := template.ParseFiles(tmplFile)
 	if err != nil {
-		http.Error(w, "Failed to render template", http.StatusInternalServerError)
+		http.Error(w, "Failed to parse template: "+err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	err = tmpl.Execute(w, data)
 	if err != nil {
-		http.Error(w, "Failed to render template", http.StatusInternalServerError)
+		http.Error(w, "Failed to render template: "+err.Error(), http.StatusInternalServerError)
 		return
 	}
 }

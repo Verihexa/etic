@@ -91,3 +91,71 @@ h1 {
   margin-top: 3rem;
 }
 
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url(../images/home.png);
+  background-color: var(--main-color);
+}
+
+h1 {
+  text-align: center;
+  margin-top: 3rem;
+  color: var(--ext-color);
+}
+
+.list {
+  padding: 0;
+}
+
+.list li {
+  margin: 1rem 2rem;
+  padding: 1.5rem 5rem;
+  border: 1px solid #ccc;
+  border-radius: 3rem;
+  background-color: var(--ext-color);
+  color: var(--main-color);
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-weight: bold;
+}
+
+.list li button {
+  background-color: var(--main-color);
+  color: var(--ext-color);
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 3rem;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.price {
+  color: var(--ext-color);
+  font-size: 1.75rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+/* Responsive stil */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .list li {
+    padding: 1rem 3rem;
+  }
+
+  .list li button {
+    padding: 0.3rem 1.5rem;
+  }
+
+  .price {
+    font-size: 1.25rem;
+  }
+}

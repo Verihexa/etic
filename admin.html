@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles/adminstyle.css">
+</head>
+<body>
+    <h1>Ürün Ekle</h1>
+    <form action="/admin" method="POST">
+        <label for="name">Ürün Adı:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="description">Açıklama:</label>
+        <textarea id="description" name="description" required></textarea><br>
+        <label for="price">Fiyat:</label>
+        <input type="text" id="price" name="price" required><br>
+        <label for="imageURL">Resim URL:</label>
+        <input type="text" id="imageURL" name="imageURL" required><br>
+        <input type="submit" value="Ürün Ekle">
+    </form>
+</body>
+</html>
