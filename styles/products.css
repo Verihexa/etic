@@ -237,28 +237,25 @@ h1 {
     margin-right: 20%;
     cursor: pointer;
     float: right;
-    margin-right: 50%;
+    margin-right: 28%;
     margin-top: 20%;
   }
 
   .prod{
     font-weight: bold;
-    text-align: right;
-    justify-content:right;
     width: auto;
-    padding-top: 1rem;
+    padding-top: 4rem;
     padding-bottom: 2rem;
     color: var(--ext-color);
     justify-content: space-between;
-    margin-right: 60%;
+    margin-left: 50%;
     font-size: 1.5rem;
     display: block;
-    
-  }
+    }
 
 .prod#price{
   font-size: 3rem;
-  margin-right: 64%;
+  margin-left: 50%;
 }
 
 /*FOOTER*/
