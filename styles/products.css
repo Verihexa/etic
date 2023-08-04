@@ -192,10 +192,14 @@ p {
 }
 
 /* Fiyat bilgisi */
-.price {
-  font-size: 1.2rem;
+.product-price {
+  font-size: 2rem;
   font-weight: bold;
-  color: #036;
+  color: var(--ext-color);
+  position: absolute;
+  left: 570px;
+  top: 350px;
+
 }
 
 h1 {
@@ -205,27 +209,30 @@ h1 {
   margin-top: 20px;
 }
 
-.name{
+.product-name{
   color: var(--ext-color);
+  position: absolute;
+  top: 220px;
+  left: 570px;
 }
 
-.cart-add{
-    background-color: var(--ext-color);
-    color: var(--main-color);
-    border: var(--black-color);
-    font-weight: bold;
-    padding: 1rem 1rem;
-    border-radius: 2.5rem;
-    font-size: 1.75rem;
-    margin: 0.5rem 0.3rem;
-    cursor: pointer;
-    float: right;
-    margin-top: 20%;
-  
+.add-to-cart{
+  background-color: var(--ext-color);
+  color: var(--main-color);
+  border: var(--black-color);
+  font-weight: bold;
+  padding: 1rem 1rem;
+  border-radius: 2.5rem;
+  font-size: 1.75rem;
+  cursor: pointer;
+  float: right;
+  position: absolute;
+  top: 400px;
+  left: 600px;
   }
   
   
-  .cart{
+  .view-cart{
     background-color: var(--ext-color);
     color: var(--main-color);
     border: var(--black-color);
@@ -233,30 +240,25 @@ h1 {
     padding: 1rem 1rem;
     border-radius: 2.5rem;
     font-size: 1.75rem;
-    margin: 0.5rem 0.3rem;
-    margin-right: 20%;
     cursor: pointer;
     float: right;
-    margin-right: 28%;
-    margin-top: 20%;
+    position: absolute;
+    top: 400px;
+    left: 730px;
+
   }
 
-  .prod{
+  .product-description{
     font-weight: bold;
     width: auto;
-    padding-top: 4rem;
-    padding-bottom: 2rem;
     color: var(--ext-color);
-    justify-content: space-between;
     margin-left: 50%;
-    font-size: 1.5rem;
+    font-size: 2rem;
     display: block;
+    position: relative;
+    right: 380px;
+    top: 120px;
     }
-
-.prod#price{
-  font-size: 3rem;
-  margin-left: 50%;
-}
 
 /*FOOTER*/
 
@@ -361,4 +363,86 @@ h1 {
 .copyrighttext:hover{
   color: var(--main-color);
   text-decoration: underline;
+}
+.menu-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+#menuBtn {
+  display: none; /* Checkbox'ı gizleyelim */
+}
+
+#menuIcon {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #e9e0d2;
+  border: 1px solid #034f56;
+  border-radius: 3rem;
+  position: absolute;
+  top: 4rem;
+  right: 1rem;
+}
+
+.menu li {
+  margin-bottom: 1rem;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #034f56;
+  font-size: 2rem; /* Yazıları büyüt */
+  font-weight: bold; /* Yazıları kalınlaştır */
+  padding: 8px 15px;
+  display: block;
+}
+
+/* Hamburger menü özelliğini CSS kullanarak ekleyelim */
+#menuBtn:checked + .menu-icon .fa-bars {
+  display: none;
+}
+
+#menuBtn:checked + .menu-icon .fa-times {
+  display: block;
+}
+
+#menuBtn:checked ~ .menu {
+  display: block;
+}
+
+/* Hamburger menü simgesini şekillendirelim */
+.menu-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.menu-icon .fa-bars,
+.menu-icon .fa-times {
+  font-size: 24px;
+}
+
+.menu-icon .fa-times {
+  display: none;
+}
+
+/* Kapatma simgesini şekillendirelim */
+.close-icon {
+  display: none;
+  position: absolute;
+  bottom: -30px;
+  right: 10px;
+  cursor: pointer;
+}
+
+#menuBtn:checked ~ .menu .close-icon {
+  display: block;
 }
