@@ -19,29 +19,34 @@
     <header class="header">
       <!--logo-->
 
-      <a href="#" class="logo">
+      <a href="/index.html" class="logo">
         <img src="images/logo.jpg" alt="logo" />
       </a>
 
       <!--navigation bar-->
 
       <nav class="navbar">
-        <a href="/index.html">Anasayfa</a>
+        <a href="/index.html" >Anasayfa</a>
         <a href="/index.html#products">Ürünler</a>
-        <a href="#">Hakkımızda</a>
         <a href="#contactus">Bize Ulaşın</a>
       </nav>
 
       <!--navbar buttons-->
 
       <div class="buttons">
-        <button>
-          <i
-            class="fa-solid fa-magnifying-glass fa-bounce"
-            style="color: #034f56"
-          ></i>
+        
         </button>
-        <button>
+        
+        <div class="menu-container">
+          <input type="checkbox" id="menuBtn">
+          <div class="menu-icon">
+            <label for="menuBtn" id="menuIcon">
+              <i class="fas fa-bars" style="color: #034f56"></i>
+              <i class="fas fa-times" style="color: #034f56"></i>
+            </label>
+          </div>
+
+        <button class="cart-btn">
           <a href="/cart" style="text-decoration: none; color: #034f56;">
             <div style="display: inline-block;">
                 <i class="fa-solid fa-cart-shopping" style="color: #034f56"></i>
@@ -50,23 +55,29 @@
         </a>
         </a>
         </button>
-        <button>
-          <i class="fa-solid fa-bars" style="color: #034f56"></i>
-        </button>
+       
+          <ul class="menu">
+            <li><a href="/index.html">Anasayfa</a></li>
+            <li><a href="/index.html#products">Ürünler</a></li>
+            <li><a href="#contactus">İletişim</a></li>
+            <div class="close-icon" onclick="document.getElementById('menuBtn').checked = false;">
+              <i class="fas fa-times" style="color: #034f56"></i>
+            </div>
+          </ul>
+        </div>
       </div>
     </header>
     <!-- header kısmı bitiş-->
 
   <body>
     <section>
-      <h1 class="name">{{ .Name }}</h1>
-      <span><p class="prod">{{ .Description }}</p><br>
-      <p class="prod" id="price">{{ .Price }} TL</p><br>
-      </span>
-      <img class="img" src="{{ .ImageURL }}" alt="{{ .Name }}" />
-      <a class="cart" href="/cart">Sepeti Görüntüle</a>
-      <button class="cart-add" onclick="addToCart()">Sepete ekle</button>
-      </section>
+      <h1 class="product-name">{{ .Name }}</h1> <!-- Product name retrieved from the database -->
+      <p class="product-description">{{ .Description }}</p> <!-- Product description retrieved from the database -->
+      <p class="product-price">{{ .Price }} TL</p> <!-- Product price retrieved from the database -->
+      <img class="img" src="{{ .ImageURL }}" alt="{{ .Name }}" /> <!-- Product image retrieved from the database -->
+      <a class="view-cart" href="/cart">Sepete Git</a> <!-- Button to view the cart -->
+      <button class="add-to-cart" onclick="addToCart()">Sepete Ekle</button> <!-- Button to add the product to the cart -->
+    </section>
     
     <!-- Bu kısmı ekledik -->
     
@@ -142,7 +153,7 @@ cartItemCountElement.textContent = cartItemCount;
           class="fa-solid fa-phone"
           style="color: #e9e0d2"
         ></a>
-        <p class="telveadres">0553 174 3703</p>
+        <p class="telveadres">0555 200 02 39</p>
         <br />
         <a
           href="https://www.instagram.com/verihexa/"
@@ -150,7 +161,7 @@ cartItemCountElement.textContent = cartItemCount;
           style="color: #e9e0d2"
         ></a>
         <p class="telveadres">
-          Üniversite Mahallesi, Naz Sokak, No:8 Avcılar/İstanbul
+          Antalya/Finike
         </p>
       </div>
 
